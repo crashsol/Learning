@@ -1,5 +1,5 @@
 # 在vs code 中使用 Eslint 格式化文件
-![效果图](images/1.png)
+![效果图](https://github.com/crashsol/Learning/blob/master/images/1.png)
 
 
 ## 步骤
