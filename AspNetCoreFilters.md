@@ -45,11 +45,21 @@
             _env = env;
             _logger = logger;
         }
-        public void OnException(ExceptionContext context)
-        {         
+       public void OnException(ExceptionContext context)
+        {        
+           
             if (context.Exception.GetType() == typeof(UserOperationException))
             {             
-                context.Result = new BadRequestObjectResult(context.Exception.Message);
+                if(context.HttpContext.Request.IsAjax())
+                {
+                    context.Result = new BadRequestObjectResult(context.Exception.Message);
+                }
+                else
+                {           
+                    context.ModelState.AddModelError(string.Empty, context.Exception.Message);
+                    context.Result = new ViewResult();
+                }
+                
             }
             else
             {              
@@ -59,12 +69,21 @@
                     //非生产环境就返回堆栈错误信息
                     Message = context.Exception.StackTrace;
                 }
-                context.Result = new BadRequestObjectResult(Message);
+                if(context.HttpContext.Request.IsAjax())
+                {
+                    context.Result = new BadRequestObjectResult(Message);
+                }
+                else
+                {                  
+                    context.ModelState.AddModelError(string.Empty, context.Exception.Message);
+                    context.Result = new ViewResult();
+                }
+            
             }
             //记录错误信息
             _logger.LogError(context.Exception, context.Exception.Message);
             context.ExceptionHandled = true;
-        }     
+        }   
     }
 
 ```
