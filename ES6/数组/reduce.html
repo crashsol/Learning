@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [123, 22, 344, 5555]
+        //c 表示index  下标  
+        //b 表示item，当前数
+        //a 表示中间结果 temp
+        /*   let result = arr.reduce(function (a, b, c) {
+
+              //alert(a+','+b+','+c)
+              return a + b;
+          }) */
+
+        //求和
+        let result = arr.reduce((temp, item, index) => {
+            return temp + item;
+        })
+        console.log(result)
+
+        //求平均数
+        let avg = arr.reduce((temp, item, index) => {
+            if(index != arr.length-1)
+            {
+                //不是最后一次
+                return temp+item;
+            }
+            else{
+                //最后一次
+                return (temp + item)/arr.length;
+            }
+           
+        })
+        console.log(avg)
+    </script>
+
+</body>
+
+</html>

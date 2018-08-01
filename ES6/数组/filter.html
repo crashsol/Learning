@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [123, 2, 3, 4, 5, 5, 6, 99, 12, 15]
+
+        //过滤所有能够被3整除的数据
+        let result = arr.filter(item => item % 3 === 0);
+        console.log(...result);
+
+        //过滤对象内容
+        let persons = [{
+                name: '22',
+                age: 22,
+            }, {
+                name: '33',
+                age: 33,
+            },
+            {
+                name: '44',
+                age: 44,
+            },
+            {
+                name: '55',
+                age: 55,
+            },
+            {
+                name: '123',
+                age: 12,
+            },
+        ]
+
+        let personAgeOver30 = persons.filter(item => item.age>30);
+        console.log(personAgeOver30)
+    </script>
+</body>
+
+</html>
