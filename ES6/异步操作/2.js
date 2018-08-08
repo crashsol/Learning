@@ -1,6 +1,5 @@
 async function timeout(flag)
-{
-    let result =''
+{    
     if(flag)
     {
         return 'ok'
