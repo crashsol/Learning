@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CDN 引入vue 和 axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 输入框区域 -->
+        <div style="height:50px">
+            <input type="text" placeholder="请输入电话号码" v-model="phoneNum">
+            <button @click="getFaceResult">确定</button>
+            <button @click="getFaceResult2">异步请求</button>
+        </div>
+
+        <!-- 充值面值 显示区域 -->
+        <div>
+            充值面值：
+            <span v-for="item in faceList" :key='item'>
+                {{item}}
+            </span>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                phoneNum: '123123',
+                faceList: []
+            },
+            methods: {
+                //获取城市信息
+                getLocation(phoneNum) {
+                    return axios.post('phoneLocation', {
+                        phoneNum
+                    })
+                },
+                getFaceList(province, city) {                  
+                    return axios.post('/faceList', {
+                        province,
+                        city
+                    })
+                },
+                // 点击确定按钮时，获取面值列表
+                getFaceResult() {
+
+                    //Old 
+                    /*      
+                      最后是前端页面中的click 事件的getFaceResult,
+                      由于axios 返回的是promise 对象， 我们使用then 的链式写法，
+                      先调用getLocation方法， 在其then方法中获取省和市， 
+                      然后再在里面调用getFaceList， 
+                      再在getFaceList 的then方法获取面值列表，
+                    */
+                    this.getLocation(this.phoneNum)
+                        .then(res => {
+                            if (res.status === 200 && res.data.success) {
+                                let province = res.data.obj.province;
+                                let city = res.data.obj.city;
+                                console.log(province, city)
+
+
+                                this.getFaceList(province, city)
+                                    .then(res => {
+                                        console.log(res)
+                                        if (res.status === 200 && res.data.success) {
+                                            this.faceList = res.data.obj
+                                        }
+                                    })
+                            }
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
+                },
+                async getFaceResult2() {
+
+                    let locationResult = await this.getLocation(this.phoneNum)
+                    if (locationResult.data.success){
+                        let {province,city} = locationResult.data.obj
+                        console.log(province,city)
+                        let faceResult = await this.getFaceList(province,city)
+                        if(faceResult.data.success)
+                        {
+                            this.faceList = faceResult.data.obj
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
