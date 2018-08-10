@@ -18,6 +18,7 @@
             <input type="text" placeholder="请输入电话号码" v-model="phoneNum">
             <button @click="getFaceResult">确定</button>
             <button @click="getFaceResult2">异步请求</button>
+            <button @click="getFaceResult3">异步请求</button>
         </div>
 
         <!-- 充值面值 显示区域 -->
@@ -29,7 +30,7 @@
         </div>
     </div>
     <script>
-        new Vue({
+        let vm = new Vue({
             el: '#app',
             data: {
                 phoneNum: '123123',
@@ -42,7 +43,7 @@
                         phoneNum
                     })
                 },
-                getFaceList(province, city) {                  
+                getFaceList(province, city) {
                     return axios.post('/faceList', {
                         province,
                         city
@@ -64,9 +65,6 @@
                             if (res.status === 200 && res.data.success) {
                                 let province = res.data.obj.province;
                                 let city = res.data.obj.city;
-                                console.log(province, city)
-
-
                                 this.getFaceList(province, city)
                                     .then(res => {
                                         console.log(res)
@@ -80,15 +78,30 @@
                             console.log(err)
                         })
                 },
-                async getFaceResult2() {
-
+                getFaceResult2: async function () {
                     let locationResult = await this.getLocation(this.phoneNum)
-                    if (locationResult.data.success){
-                        let {province,city} = locationResult.data.obj
-                        console.log(province,city)
-                        let faceResult = await this.getFaceList(province,city)
-                        if(faceResult.data.success)
-                        {
+                    if (locationResult.data.success) {
+                        let {
+                            province,
+                            city
+                        } = locationResult.data.obj
+                        console.log(province, city)
+                        let faceResult = await this.getFaceList(province, city)
+                        if (faceResult.data.success) {
+                            this.faceList = faceResult.data.obj
+                        }
+                    }
+                },
+                async getFaceResult3 () {
+                    let locationResult = await this.getLocation(this.phoneNum)
+                    if (locationResult.data.success) {
+                        let {
+                            province,
+                            city
+                        } = locationResult.data.obj
+                        console.log(province, city)
+                        let faceResult = await this.getFaceList(province, city)
+                        if (faceResult.data.success) {
                             this.faceList = faceResult.data.obj
                         }
                     }
