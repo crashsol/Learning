@@ -1,0 +1,23 @@
+/* 定义变量 */
+* {
+  margin: 0;
+  padding: 0;
+}
+#wapper {
+  height: 200px;
+  width: 200px;
+  border: 1px solid #ccc;
+  position: relative;
+  margin: 0 auto;
+}
+#wapper .inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}
