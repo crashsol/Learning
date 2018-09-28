@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input[disabled]
+        {
+            cursor:not-allowed;
+        }
+        ol,ul{
+            list-style-type: none
+        }
+        /* 属性=# */
+        a[href="#"]{
+            color: red;
+        }
+        /* 属性以什么开头 */
+        a[href^="#"]
+        {
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li>222</li>
+        <li>222</li>
+        <li>222</li>
+    </ol>
+
+    <a href="#">的</a>
+    <a href="#head">头部</a>
+    <label for="dd">
+        <input type="text" name="dd" id="dd" disabled>
+
+    </label>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 一共选择后端5个li
+         自己的两个加上后代 ul中的3个
+         */
+        ul#partime li{
+
+        }
+         /* 一共选择后端3个li
+         只选择了ul中的3个子元素
+          */
+        ul#partime > li{
+
+        }
+
+        /* 只选择第二代元素中的子元素中的LI */
+        ul#partime > * li{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="partime">
+        <li>111111</li>
+        <li>3333333</li>
+        <li>
+            <ul>
+                <li>order1</li>
+                <li>order2</li>
+                <li>order3</li>
+            </ul>
+        </li>
+       
+    </ul>
+    
+</body>
+</html>

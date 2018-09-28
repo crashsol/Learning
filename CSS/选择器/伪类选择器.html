@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 选择第一个子元素 */
+        ul#partime>li:first-child {
+            color: red;
+        }
+        ul#partime>li:last-child{
+            color:pink;
+        }
+        ul#partime>li:nth-child(2){
+            color:blue;
+        }
+        /* 访问过的 */
+        a:visited{
+            color: green;
+        }
+        a:link{
+            color:red;
+        }
+        a:hover{
+            color:fuchsia;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>结构化伪类选择器</h2>
+    <p>子元素中的第一个     e:first-child</p>
+    <p>子元素中的最后一个   e:last-child</p>
+    <p>子元素中的第N个      e:nth-child(n)</p>
+
+    <h2>UI伪类选择器</h2>
+    <p>访问过的  :visited</p>
+    <p>鼠标移动上去 :hover</p>
+    <p>e:focus</p>
+    <p>e:checked</p>
+    <p>e:active</p>
+    <p>e:target</p>
+
+    <a href="#">测试</a>
+    <a href="#">测试2222</a>
+
+    <ul id="partime">
+        <li>111111</li>
+        <li>222222</li>
+        <li>
+            <ul>
+                <li>order1</li>
+                <li>order2</li>
+                <li>order3</li>
+            </ul>
+        </li>
+        <li>44444</li>
+
+    </ul>
+</body>
+
+</html>
