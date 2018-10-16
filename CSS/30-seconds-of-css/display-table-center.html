@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 这种方式居中， container 容器必须要有固定的宽度和高度 */
+        .container{
+            border:1px solid #333;
+            height: 250px;
+            width: 250px;
+        }
+        .center{
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+        .center >span{
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="center">
+            <span>Centered Content</span>
+        </div>
+    </div>
+
+    
+</body>
+</html>

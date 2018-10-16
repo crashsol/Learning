@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{           
+            background-color: green;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .floated {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: #eee;
+        }
+
+        .first {
+            background-color: red;
+        }
+
+        .second {
+            background-color: pink;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box clearfix">
+        <div class="floated first">float a</div>
+        <div class="floated second">float b</div>
+        <div class="floated">float c</div>
+    </div>
+
+
+</body>
+
+</html>

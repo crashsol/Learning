@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+        *,*::before,*::after{
+            box-sizing: inherit;
+        }
+        .box{
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            margin: 10px;
+            background: tomato;
+            color: white;
+            border: 10px solid red;
+        }
+        .content-box{
+            box-sizing: content-box;
+        }
+        /*CSS 创建一个圆形用 */
+        .circle{
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            background-color: lightblue;
+            color: white;
+            text-align: center;
+            line-height: 2rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+         border-box
+    </div>
+    <div class="box content-box">
+        content-box
+    </div>
+    <div class="circle">
+        你
+    </div>
+</body>
+</html>
