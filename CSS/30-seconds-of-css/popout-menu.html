@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .reference {
+            position: relative;
+            background: tomato;
+            width: 100px;
+            height: 100px;
+        }
+
+        .popout-menu {
+            position: absolute;
+            visibility: hidden;
+            top: 100%;
+            background: #333;
+            color: white;           
+        }
+
+        .reference:hover>.popout-menu,
+        .reference:focus>.popout-menu,
+        .reference:focus-within>.popout-menu {
+            visibility: visible;
+        }
+        ul{
+            margin: 5px 5px;
+            padding-left: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;            
+        }
+        li{
+            line-height: 30px;
+            text-align: center;
+            list-style: none;
+            display: block;
+            height: 30px;
+            width: 100px; 
+        }
+        li:hover{        
+            color: #666666;
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="reference" tabindex="0">
+        <div class="popout-menu">
+           <ul>
+               <li>123</li>
+               <li>123</li>
+               <li>123</li>
+               <li>123</li>
+           </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
