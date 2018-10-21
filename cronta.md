@@ -77,10 +77,7 @@ HOME=/    //使用者运行的路径,这里是根目录
 22 4 * * 0 root run-parts /etc/cron.weekly //每星期执行/etc/cron.weekly内的脚本 
 42 4 1 * * root run-parts /etc/cron.monthly //每月去执行/etc/cron.monthly内的脚本 
 
-大家注意"run-parts"这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名了。
-
- 
-
+大家注意"run-parts"这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名了。  
 ## 实例
 
 --------------------------------------
@@ -141,3 +138,15 @@ string            meaning
 @daily           Run once a day, "0 0 * * *".
 @midnight      (same as @daily)
 @hourly         Run once an hour, "0 * * * *". 
+
+
+
+
+## 个人记录
+```
+修改定时任务文件
+crontab -e
+
+重新加载crond
+service crond reload
+```
