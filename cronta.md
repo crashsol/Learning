@@ -148,5 +148,6 @@ string            meaning
 crontab -e
 
 重新加载crond
+systemctl reload crond.service
 service crond reload
 ```
