@@ -1,2 +1,3 @@
 /LESS/node_modules/**
-/K8S/k8s-demo/bin/obj/*
+/K8S/k8s-demo/bin/obj/**
+/K8S/k8s-demo/bin/**
