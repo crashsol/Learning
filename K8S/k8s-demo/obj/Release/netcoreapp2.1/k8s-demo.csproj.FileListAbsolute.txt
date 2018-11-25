@@ -1,0 +1,14 @@
+D:\FrontProjects\Learning\K8S\k8s-demo\bin\Release\netcoreapp2.1\k8s-demo.deps.json
+D:\FrontProjects\Learning\K8S\k8s-demo\bin\Release\netcoreapp2.1\k8s-demo.runtimeconfig.json
+D:\FrontProjects\Learning\K8S\k8s-demo\bin\Release\netcoreapp2.1\k8s-demo.runtimeconfig.dev.json
+D:\FrontProjects\Learning\K8S\k8s-demo\bin\Release\netcoreapp2.1\k8s-demo.dll
+D:\FrontProjects\Learning\K8S\k8s-demo\bin\Release\netcoreapp2.1\k8s-demo.pdb
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.csprojAssemblyReference.cache
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.csproj.CoreCompileInputs.cache
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.RazorAssemblyInfo.cache
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.RazorAssemblyInfo.cs
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.AssemblyInfoInputs.cache
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.AssemblyInfo.cs
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.RazorTargetAssemblyInfo.cache
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.dll
+D:\FrontProjects\Learning\K8S\k8s-demo\obj\Release\netcoreapp2.1\k8s-demo.pdb
