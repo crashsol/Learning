@@ -12,6 +12,12 @@
  - 创建deploy
    > kubectl create -f deploy.yaml
 
+# pod
+  - 查询某个命名空间下的所有pods   
+     > kubectl get pods -n kube-system
+  - 删除指定namespace下的pod
+     > kubectl delete pod [podname] -n [namespace]
+  
 
 # ClusterIP 与 NodePort
 
