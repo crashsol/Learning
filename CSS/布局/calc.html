@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>左中右流式布局</title>
+    <style>
+        nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 5rem;
+            height: 100%;
+            background-color: lightblue;
+        }
+
+        aside {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 20rem;
+            height: 100%;
+            background-color: #eee;
+        }
+
+        main {
+            margin-left: 5rem;
+            width: calc(100% - 25rem);
+            background-color: silver;
+        }
+
+        @media screen and (max-width:40em) {
+            nav {
+                width: 3rem;
+            }
+
+            aside {
+                width: 12rem;
+            }
+
+            main {
+                margin-left: 3rem;
+                width: calc(100% -15rem);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>nav</nav>
+    <aside>水水水水</aside>
+    <main>
+        住窗口
+    </main>
+
+</body>
+
+</html>
