@@ -8,7 +8,7 @@ sudo yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.
 2.与其他使用yum的软件包一样安装MySQL：
 ```
  sudo yum install mysql-comm
-```
+```   
 
 3.启动mysql
 ```
