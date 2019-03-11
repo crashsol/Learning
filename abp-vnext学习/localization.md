@@ -81,10 +81,22 @@
 
 ```
 
+## 直接在已有的资源上进行扩展和覆盖
+
+- 继承资源可以创建新的资源, 无需修改现有的资源. 但是在某些情况下, 你可能不想创建新资源,而是直接扩展现有资源.
+- 如果扩展文件定义了相同的本地化字符串, 那么它会覆盖该字符串
+
+```
+services.Configure<AbpLocalizationOptions>(options =>
+{
+    options.Resources
+        // 给AbpValidationResource添加新的key-value扩展
+        .Get<AbpValidationResource>()
+        .AddVirtualJson("/Localization/Resources/Test/Extensions");
+});
+
+```
+
 ## 官方文档
 
 - [官方文档(中文)](https://cn.abp.io/documents/abp/latest/Localization)
-
-```
-
-```
