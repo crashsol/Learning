@@ -1,52 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>均匀分布的子元素</title>
     <style>
-        .flex-container{
-            display: flex;
-            justify-content: space-between;
-        }
-        p{
-            height: 100px;
-            width: 100px;
-            background-color: red;
-            color: white;
-            line-height: 100px;
-            text-align: center;
-        }
-        p:nth-child(2n)
-        {
-            background: #333;
+        @media print {
+            @page {
+                size: 50mm 25mm;
+                margin: 100px;
+            }
         }
 
-        .flexbox-centering{
+        .card {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px;
-            background-color: #3e3e3e;
+            width: 300px;
+            height: 80px;
+            background-color: aliceblue;
+            justify-content: space-around;
+            padding: 5px;
+        }
+
+        .card img {
+            width: 35%;
+        }
+
+        .content {
+            width: 63%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .content p {
+            display: block;
+            margin: 0px;
+            color: #223344;
+            word-wrap: break-word;
+            font-size: 4px;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="flex-container">
-        <p>Item1</p>
-        <p>Item1</p>
-        <p>Item1</p>
-        <p>Item1</p>     
-    </div>
-
-    <div class="flexbox-centering">
-        <div class="child">
-            盒子模型子元素居中
+    <div class="card">
+        <img src="../../images/1.png" />
+        <div class="content">
+            <p>编号: 1222222222123123123</p>
+            <p>名称: 电脑采购设备顶顶顶顶</p>
+            <p>价格: 12588元</p>
+            <p>人员: 汤林丹打</p>
+            <p>地点: 大楼二楼会议室大点的</p>
+            <p>时间: 2019-2-59</p>
         </div>
     </div>
 
-    
 </body>
+
 </html>
