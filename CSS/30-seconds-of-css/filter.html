@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .odd-shadow {
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
+      height: 80px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 80px;
+      background-color: #06c;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.8));
+    }
+    .odd-shadow::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border: 10px solid transparent;
+      border-right-color: #06c;
+      margin-left: -20px;
+    }
+  </style>
+  <body>
+    <div class="odd-shadow">哎呦，猪先森</div>
+  </body>
+</html>
