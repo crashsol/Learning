@@ -13,7 +13,23 @@ const geometry = new THREE.PlaneGeometry(50,50);
 const material = new THREE.ShaderMaterial(
   {
     color: 0x00ff00,
-    side:THREE.DoubleSide
+    side:THREE.DoubleSide,
+    //顶点着色器
+    vertexShader:`
+     void main(){
+
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+
+
+     }
+    `,
+    //分片着色器
+    fragmentShader:`
+     void main() {
+       gl_FragColor = vec4(1.0, 1, 0, 1.0);
+    }
+    `
+    
   }
 );
 const cube = new THREE.Mesh(geometry, material);

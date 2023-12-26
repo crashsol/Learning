@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(
 
 //点光源
 var pointLine = new THREE.PointLight(0xffffff);
-pointLine.position.set(500, -800, 300); //点光源位置
+pointLine.position.set(5000, 5000, 5000); //点光源位置
 scene.add(pointLine); //点光源添加到场景中
 
 //环境光
@@ -31,15 +31,15 @@ scene.add(ambient);
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth-1, window.innerHeight-1);
 
 //讲渲染器加入到dom
 document.body.appendChild(renderer.domElement);
 
-const axesHelper = new THREE.AxesHelper(5000);
+const axesHelper = new THREE.AxesHelper(6000);
 scene.add(axesHelper);
 
-axesHelper.position.set(0, -4000, -0);
+axesHelper.position.set(0, -5000, -0);
 
 //添加控制器
 const orbitControls = new OrbitControls(camera, renderer.domElement);
@@ -61,8 +61,8 @@ const orbitControls = new OrbitControls(camera, renderer.domElement);
 // scene.add(gridYZ);
 
 //设置相机位置
-camera.position.set(1000, 2000, 5000);
-camera.lookAt(scene.position);
+camera.position.set(3000, -2000, 3000);
+camera.lookAt(0,0,0);
 
 
 
@@ -70,7 +70,7 @@ camera.lookAt(scene.position);
 scene.add(orbitControls)
 
 //绘制管道
-var points = MockData[0].tras.map(b => new THREE.Vector3(b[0],b[1] +1000,b[2]))
+var points = MockData[0].tras.map(b => new THREE.Vector3(b[0],b[1],b[2]))
 const path = new THREE.CatmullRomCurve3(points);
 //使用path路径创建一条曲线
 const lineGeo = new THREE.BufferGeometry();
