@@ -11,10 +11,7 @@ renderer.setSize(window.innerWidth - 1, window.innerHeight - 1);
 document.body.appendChild(renderer.domElement);
 const orbitControls = new OrbitControls(camera, renderer.domElement);
 
-//const geometry = new THREE.PlaneGeometry(50,50);
-//const geometry = new THREE.BoxGeometry(10,10,10);
-const geometry = new THREE.SphereGeometry(10);
-
+const geometry = new THREE.PlaneGeometry(50,50);
 const material = new THREE.ShaderMaterial(
   {
     color: 0x00ff00,
@@ -77,7 +74,7 @@ const material = new THREE.ShaderMaterial(
 
 
        // step 加 fract 形成突变的条线样式
-       float repeatX3 = vUv.x * 10.0;      
+       float repeatX3 = vUv.x * 2.0;      
        gl_FragColor = vec4(vec3(step(0.5,fract(repeatX3))), 1.0);
 
     }
