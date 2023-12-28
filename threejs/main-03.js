@@ -12,8 +12,7 @@ document.body.appendChild(renderer.domElement);
 
 // const geometry = new THREE.PlaneGeometry(50,50);
 // const geometry = new THREE.BoxGeometry(30, 30, 30);
-// const geometry = new THREE.SphereGeometry(40,32,16);
-const geometry = new THREE.TorusGeometry(10,5,32,16);
+const geometry = new THREE.SphereGeometry(40,32,16);
 
 const material = new THREE.ShaderMaterial(
   {
@@ -24,7 +23,7 @@ const material = new THREE.ShaderMaterial(
       
     },
 
-     transparent:true, 
+    // transparent:true, 
     side: THREE.DoubleSide,
     //顶点着色器
     vertexShader:/* glsl */`
@@ -53,20 +52,18 @@ const material = new THREE.ShaderMaterial(
 
         //设置中心点 uv 0->1
         vec2 center = vec2(0.5,0.5);    
-
-        vec2 p = vUv;
-        p.x *=2.0;
-
-        vec2 pos = mod(p * 10.0,1.0);    
+        
+        vec2 pos = mod(vUv * 5.0,1.0);    
 
         //uv离中心点的距离
         float d =  distance(pos,center);
 
-        float mask = step(d,0.25 +  sin(time + vUv.x * 2.0 ) *0.25);
+        float mask = step(d,0.25 +  sin(time + vUv.x * 2.0 ) *0.15);
 
         vec3 fragColor = mix(color , vec3(1.0), mask);
 
-        gl_FragColor = vec4(vec3(fragColor),0.80); 
+    
+        gl_FragColor = vec4(fragColor,1.0); //从小到大的变化的 圆圈
     }
     `
 
