@@ -12,7 +12,7 @@ document.body.appendChild(renderer.domElement);
 const orbitControls = new OrbitControls(camera, renderer.domElement);
 
 // const geometry = new THREE.PlaneGeometry(50,50);
-const geometry = new THREE.BoxGeometry(30,30,30);
+const geometry = new THREE.BoxGeometry(10,10,10);
 // const geometry = new THREE.SphereGeometry(10);
 
 const material = new THREE.ShaderMaterial(
@@ -20,8 +20,6 @@ const material = new THREE.ShaderMaterial(
     uniforms:{
       time:{value:0.2}
     },  
-   
-    // transparent:true, 
     side:THREE.DoubleSide,
     //顶点着色器
     vertexShader:/*glsl*/`
@@ -87,7 +85,7 @@ const material = new THREE.ShaderMaterial(
       
 
        //通过uniform 传递 time 数据
-        gl_FragColor = vec4(vec3(vUv.x + sin(time),vUv.y,vUv.y +cos(time)),1.0);
+        gl_FragColor = vec4(vec3(vUv.x + sin(time),vUv.y,vUv.y +cos(time)), 1.0);
     }
     `
     
