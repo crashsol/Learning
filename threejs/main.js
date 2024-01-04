@@ -62,6 +62,7 @@ const material = new THREE.ShaderMaterial(
         //uv离中心点的距离
         float d =  distance(pos,center);
 
+        //mix 两个颜色按 mask 比例进行组合
         float mask = step(d,0.25 +  sin(time + vUv.x * 2.0 ) *0.25);
 
         vec3 fragColor = mix(color , vec3(1.0), mask);
