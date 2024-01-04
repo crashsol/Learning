@@ -93,12 +93,34 @@ const tube = new THREE.Mesh(tubeGeo, tubeMat);
 
 //tube 2
 const tubeGeo2 = new THREE.TubeGeometry(path, 64, 50, 20, false);
-const tubeMat2 = new THREE.MeshStandardMaterial({
+const tubeMat2 = new THREE.ShaderMaterial({
+  uniforms:{
+    time:{
+      value:0
+    }
+  },
     side: THREE.DoubleSide, 
-    color: "#ff0000",
-    transparent:true,
-   //   wireframe:true
-   opacity:0.2
+    // color: "#ff0000",
+    //transparent:true,
+    //   wireframe:true
+    // opacity:0.2
+    vertexShader: `  
+    varying vec3 vPosition;  
+    void main() {  
+      vPosition = position;  
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);  
+    }  
+  `,  
+  fragmentShader: `  
+  uniform float time;  
+  varying vec3 vPosition;  
+  void main() {  
+    //vec3 color = vec3(sin(vPosition.y + time), 1, 1);  
+    //gl_FragColor = vec4(color, 1.0);  
+    float color =  step(0.7,sin(vPosition.y + time));
+    gl_FragColor = vec4(vec3(color), 1.0);  
+  }  
+`  
   
   });
 const tube2 = new THREE.Mesh(tubeGeo2, tubeMat2);
@@ -116,7 +138,7 @@ function animate() {
   // if (cube.position.x > 5) {
   //   cube.position.x = 0;
   // }
-
+  tubeMat2.uniforms.time.value += 0.1; // 更新时间参数实现流光效果  
   //重新渲染场景 、相机，讲调整的内容进行展示
   renderer.render(scene, camera);
 }
